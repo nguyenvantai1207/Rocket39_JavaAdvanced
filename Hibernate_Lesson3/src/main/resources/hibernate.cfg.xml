@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/TestingSystem</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <!-- update: nếu chưa có bảng => sẽ tạo bảng và cột -->
+        <!-- update: nếu chưa có cột => sẽ tạo cột -->
+        <!-- none: k để ý, khi đưa code lên production, thì dùng none -->
+        <!-- vì nếu để update thì nó có thể tự tạo bảng, cột gây ra lỗi -->
+        <!-- update // create // create-drop-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!-- format code SQL -->
+        <property name="show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="connection.pool_size">10</property>
+
+        <!-- other -->
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+
+    </session-factory>
+</hibernate-configuration>
